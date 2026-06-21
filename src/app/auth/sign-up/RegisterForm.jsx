@@ -10,6 +10,7 @@ import {
   TextField,
   Label,
   InputGroup,
+  Checkbox,
 } from "@heroui/react";
 
 import {
@@ -28,7 +29,7 @@ const RegisterForm = () => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [role, setRole] = useState("user");
   const toggleVisibility = () => setIsVisible((prev) => !prev);
 
   const handleSubmit = async (e) => {
@@ -43,13 +44,16 @@ const RegisterForm = () => {
       email: formData.get("email"),
       image: formData.get("image"),
       password: formData.get("password"),
+       role,
     };
+    console.log(data)
 
     const { error } = await authClient.signUp.email({
       name: data.name,
       email: data.email,
       password: data.password,
       image: data.image || undefined,
+      role: data.role,
     });
 
     setLoading(false);
@@ -132,6 +136,48 @@ const RegisterForm = () => {
             />
           </InputGroup>
         </TextField>
+      {/* Role Selection */}
+<div className="space-y-3">
+  <Label className="text-sm font-medium text-gray-300">
+    Register As
+  </Label>
+
+  <div className="flex gap-6">
+  <Checkbox
+  isSelected={role === "user"}
+  onChange={() => setRole("user")}
+>
+      <Checkbox.Content>
+        <Checkbox.Control>
+          <Checkbox.Indicator />
+        </Checkbox.Control>
+
+        <span className="text-white">
+          User
+        </span>
+      </Checkbox.Content>
+    </Checkbox>
+
+   <Checkbox
+  isSelected={role === "vendor"}
+  onChange={() => setRole("vendor")}
+>
+      <Checkbox.Content>
+        <Checkbox.Control>
+          <Checkbox.Indicator />
+        </Checkbox.Control>
+
+        <span className="text-white">
+          Vendor
+        </span>
+      </Checkbox.Content>
+    </Checkbox>
+  </div>
+
+  <p className="text-xs text-gray-500">
+    User can book tickets, Vendor can add and manage tickets.
+  </p>
+</div>
 
         {/* Password */}
         <TextField isRequired className="flex flex-col gap-2">

@@ -50,7 +50,7 @@ const LoginForm = () => {
     setLoading(false);
 
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
       return;
     }
 
