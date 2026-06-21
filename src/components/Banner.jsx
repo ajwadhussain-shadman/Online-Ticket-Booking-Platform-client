@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <section className="relative overflow-hidden">
       {/* Background Image */}
-      <div className="relative h-[500px] md:h-[850px]">
+      <div className="relative h-[600px] md:h-[850px]">
         <Image
           src="/assets/banner.jpeg"
           alt="TicketBari Banner"

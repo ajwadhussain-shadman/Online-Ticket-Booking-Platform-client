@@ -67,20 +67,19 @@ const Navbar = () => {
         {/* Right */}
         <div className="hidden items-center gap-6 md:flex">
           <Link
-            href="/signin"
+            href="/auth/sign-in"
             className="text-lg font-medium text-gray-300 transition hover:text-white"
           >
             Sign In
           </Link>
 
-          <Button
-            as={Link}
-            href="/signup"
+          <Link
+            href="/auth/sign-up"
             radius="full"
             className="bg-cyan-500 px-8 py-2 rounded-full text-lg font-semibold text-white shadow-lg shadow-cyan-500/30 transition hover:scale-105"
           >
             Get Started
-          </Button>
+          </Link>
         </div>
       </div>
 
@@ -105,20 +104,20 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/signin"
+              href="/auth/sign-in"
               className="block rounded-xl px-4 py-3 font-medium text-gray-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Sign In
             </Link>
 
-            <Button
+            <Link
               as={Link}
-              href="/signup"
+              href="/auth/sign-up"
               className="w-full bg-cyan-500 text-white p-4 rounded-full"
             >
               Get Started
-            </Button>
+            </Link>
           </div>
         </div>
       )}
