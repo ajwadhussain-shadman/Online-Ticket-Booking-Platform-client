@@ -1,4 +1,5 @@
-import DashboardProfile from "@/components/dashboard-component/DashboardProfile";
+
+import DashBoardProfile from "@/components/dashboard-component/DashBoardProfile";
 import { verifyRole } from "@/lib/verifyRole";
 
 const VendorProfilePage = async () => {
@@ -10,7 +11,7 @@ const VendorProfilePage = async () => {
         Vendor Profile
       </h1>
 
-      <DashboardProfile user={user} />
+      <DashBoardProfile user={user} />
     </div>
   );
 };
