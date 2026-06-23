@@ -2,7 +2,6 @@
 import { redirect } from "next/navigation";
 
 const url=process.env.NEXT_PUBLIC_BASE_SERVER;
-console.log("url:",url)
 const handleStatusCode=(res)=>{
     if(res.status===403){
         redirect('/forbidden');
@@ -19,7 +18,6 @@ const handleStatusCode=(res)=>{
 }
 export const fetchData=async(path)=>{
   const res= await fetch(`${url}${path}`)
-  console.log('url',url)
   return handleStatusCode(res);
 }
 

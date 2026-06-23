@@ -3,12 +3,21 @@
 import React, { useState } from "react";
 import TransportTypeSelector from "./TransportTypeSelector";
 import { uploadImage } from "@/lib/uploadImage";
-import { postTicket } from "@/lib/postData";
 import toast from "react-hot-toast";
+import { updateTicket } from "@/lib/api/vendor";
+import { redirect } from "next/navigation";
 
-const AddTicketForm = ({ user }) => {
-  const [transportType, setTransportType] = useState("");
-  const [perks, setPerks] = useState([]);
+const UpdateTicketForm = ({ user, ticket}) => {
+  
+  console.log(ticket)
+  const [transportType, setTransportType] = useState(
+    ticket?.transportType || ""
+  );
+
+  const [perks, setPerks] = useState(
+    ticket?.perks || []
+  );
+
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const handlePerkChange = (perk) => {
@@ -18,11 +27,17 @@ const AddTicketForm = ({ user }) => {
       setPerks([...perks, perk]);
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const formData = new FormData(e.currentTarget);
-    const imgUrl = await uploadImage(image);
+    let imgUrl = ticket.image;
+
+    if (image) {
+      imgUrl = await uploadImage(image);
+    }
     const ticketData = {
       title: formData.get("title"),
       from: formData.get("from"),
@@ -40,15 +55,12 @@ const AddTicketForm = ({ user }) => {
       vendorEmail: user.email
     };
     console.log(ticketData)
-    const result = await postTicket(ticketData);
-    if (result?.acknowledged) {
-      toast.success("Ticket added successfully 🎉");
-       setLoading(false);
-      e.target.reset();
+    const result = await updateTicket(ticket._id, ticketData);
 
-      setImage(null);
-      setPerks([]);
-      setTransportType("");
+    if (result.modifiedCount > 0) {
+      setLoading(false)
+      toast.success("Ticket updated successfully 🎉");
+      redirect("/dashboard/vendor/my-added-tickets");
     }
 
   };
@@ -66,6 +78,7 @@ const AddTicketForm = ({ user }) => {
             name="title"
             type="text"
             placeholder="Hero Express"
+            defaultValue={ticket?.title}
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
@@ -79,6 +92,7 @@ const AddTicketForm = ({ user }) => {
           <input
             name="price"
             type="number"
+            defaultValue={ticket?.price}
             placeholder="1200"
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
@@ -93,6 +107,7 @@ const AddTicketForm = ({ user }) => {
           <input
             name="from"
             type="text"
+            defaultValue={ticket?.from}
             placeholder="Dhaka"
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
@@ -107,6 +122,7 @@ const AddTicketForm = ({ user }) => {
           <input
             name="to"
             type="text"
+            defaultValue={ticket?.to}
             placeholder="Sylhet"
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
@@ -136,6 +152,7 @@ const AddTicketForm = ({ user }) => {
             name="quantity"
             type="number"
             min="1"
+            defaultValue={ticket?.quantity}
             placeholder="40"
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
@@ -150,9 +167,11 @@ const AddTicketForm = ({ user }) => {
           <input
             name="departureDateTime"
             type="datetime-local"
+            defaultValue={ticket?.departureDateTime}
             className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400"
           />
         </div>
+
       </div>
       {/* Vendor Information */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -220,6 +239,17 @@ const AddTicketForm = ({ user }) => {
         </label>
 
         <div className="rounded-2xl border-2 border-dashed border-cyan-500/20 bg-[#0D1B2A] p-6 text-center transition hover:border-cyan-400">
+          {image ? (
+            <p className="mt-2 text-sm text-cyan-400">
+              {image.name}
+            </p>
+          ) : (
+            <img
+              src={ticket?.image}
+              alt={ticket?.title}
+              className="mx-auto h-24 w-24 rounded-xl object-cover"
+            />
+          )}
           <input
             type="file"
             accept="image/*"
@@ -253,14 +283,14 @@ const AddTicketForm = ({ user }) => {
         </div>
       </div>
       <button
-  type="submit"
-  disabled={loading}
-  className="h-14 w-full rounded-xl bg-cyan-500 text-base font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
->
-  {loading ? "Adding Ticket..." : "Add Ticket"}
-</button>
+        type="submit"
+        disabled={loading}
+        className="h-14 w-full rounded-xl bg-cyan-500 text-base font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {loading ? "Updating Ticket..." : "Update Ticket"}
+      </button>
     </form>
   );
 };
 
-export default AddTicketForm;
+export default UpdateTicketForm;
