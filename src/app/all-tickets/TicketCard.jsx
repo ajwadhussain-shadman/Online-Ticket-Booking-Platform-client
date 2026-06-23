@@ -59,7 +59,7 @@ const TicketCard = ({ ticket }) => {
         </div>
 
         <Link
-          href={`/tickets/${ticket._id}`}
+          href={`/all-tickets/${ticket._id}`}
           className="mt-6 flex h-12 items-center justify-center rounded-xl bg-cyan-500 font-medium text-white transition hover:bg-cyan-600"
         >
           See Details
