@@ -10,4 +10,4 @@ const RevenueOverview = async () => {
     );
 };
 
-export default RevenueOverview; async
+export default RevenueOverview; 

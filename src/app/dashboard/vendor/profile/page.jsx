@@ -1,6 +1,7 @@
 
 import DashBoardProfile from "@/components/dashboard-component/DashBoardProfile";
-import { verifyRole } from "@/lib/verifyRole";
+import { verifyRole } from "@/lib/protected-route";
+
 
 const VendorProfilePage = async () => {
   const user = await verifyRole("vendor");

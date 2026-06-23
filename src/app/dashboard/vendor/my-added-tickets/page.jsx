@@ -1,4 +1,5 @@
 
+import MyTicketCard from '@/components/dashboard-component/MyTicketCard';
 import { getVendorTickets } from '@/lib/api/vendor';
 import { verifyRole } from '@/lib/protected-route';
 
@@ -8,7 +9,6 @@ const MyAddedTickets = async () => {
 
     const user = await verifyRole('vendor');
     const tickets = await getVendorTickets(user.id);
-    console.log(tickets)
     return (
         <div>
             <div className="mb-8">
@@ -22,8 +22,8 @@ const MyAddedTickets = async () => {
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {tickets.map((ticket) => (
-                   <MyAddedTickets key={ticket._id} ticket={ticket}></MyAddedTickets>
+                {tickets?.map((ticket) => (
+                   <MyTicketCard key={ticket._id} ticket={ticket}></MyTicketCard>
                 ))}
             </div>
         </div>

@@ -72,7 +72,7 @@ const Navbar = () => {
 
           <li>
             <Link
-              href="/tickets"
+              href="/all-tickets"
               className="text-lg font-medium text-gray-300 transition hover:text-cyan-400"
             >
               All Tickets
@@ -191,7 +191,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/tickets"
+              href="/all-tickets"
               className="block rounded-xl px-4 py-3 font-medium text-gray-300"
               onClick={() => setIsMenuOpen(false)}
             >

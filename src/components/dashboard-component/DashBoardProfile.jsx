@@ -8,7 +8,7 @@ const DashBoardProfile = ({user}) => {
         <Image
           src={
             user?.image ||
-            "https://i.pravatar.cc/300"
+             "https://w7.pngwing.com/pngs/188/501/png-transparent-computer-icons-anonymous-anonymity-anonymous-face-monochrome-head.png"
           }
           alt={user?.name}
           width={150}

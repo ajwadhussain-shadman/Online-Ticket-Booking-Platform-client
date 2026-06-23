@@ -10,4 +10,4 @@ const RequestedBookings = async () => {
     );
 };
 
-export default RequestedBookings; async
+export default RequestedBookings; 
