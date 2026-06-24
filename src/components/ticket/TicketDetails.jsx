@@ -3,8 +3,8 @@ import Countdown from './Countdown';
 import BookTicketModal from './BookTicketModal';
 import { verifyRole } from '@/lib/protected-route';
 
-const TicketDetails =async ({ ticket }) => {
-    const user= await verifyRole('user')
+const TicketDetails = async ({ ticket }) => {
+    const user = await verifyRole('user')
     const isExpired = new Date(ticket.departureDateTime) < new Date();
     const isSoldOut = ticket.quantity <= 0;
     return (
@@ -147,21 +147,21 @@ const TicketDetails =async ({ ticket }) => {
                     </div>
 
                     {/* Book Button */}
-                   {!isExpired && !isSoldOut ? (
-  <BookTicketModal
-    ticket={ticket}
-    user={user}
-  />
-) : (
-  <button
-    disabled
-    className="w-full rounded-xl bg-gray-700 py-4 text-white"
-  >
-    {isExpired
-      ? "Trip Expired"
-      : "Sold Out"}
-  </button>
-)}
+                    {!isExpired && !isSoldOut ? (
+                        <BookTicketModal
+                            ticket={ticket}
+                            user={user}
+                        />
+                    ) : (
+                        <button
+                            disabled
+                            className="w-full rounded-xl bg-gray-700 py-4 text-white"
+                        >
+                            {isExpired
+                                ? "Trip Expired"
+                                : "Sold Out"}
+                        </button>
+                    )}
 
                 </div>
             </div>

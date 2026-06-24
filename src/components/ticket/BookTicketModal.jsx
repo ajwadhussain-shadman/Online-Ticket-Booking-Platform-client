@@ -32,7 +32,8 @@ const BookTicketModal = ({ ticket, user }) => {
         ticketId: ticket._id,
         ticketTitle: ticket.title,
         ticketImage: ticket.image,
-
+        from: ticket.from,
+        to: ticket.to,
         vendorId: ticket.vendorId,
 
         userId: user.id,
