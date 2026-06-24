@@ -14,6 +14,26 @@ const showCountdown = booking.status !== "rejected" &&  booking.status !== "paid
         rejected:"bg-red-500/20 text-red-400",
         paid:"bg-cyan-500/20 text-cyan-400",
     };
+   const handlePayment = async () => {
+  const res = await fetch("/api/payment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      _id: booking._id,
+      ticketId: booking.ticketId,
+      userId: booking.userId,
+      quantity: booking.quantity, 
+      ticketTitle: booking.ticketTitle,
+      totalPrice: booking.totalPrice,
+    }),
+  });
+
+  const data = await res.json();
+
+  window.location.href = data.url;
+};
 
     return (
         <Card className="overflow-hidden border border-cyan-500/20 bg-[#091425] transition-all hover:border-cyan-500/50">
@@ -113,7 +133,10 @@ const showCountdown = booking.status !== "rejected" &&  booking.status !== "paid
 
                 {/* Action */}
                 {showPayButton ? (
-                    <button className="w-full rounded-lg bg-cyan-500 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-600">
+                    <button
+                    
+                      onClick={handlePayment}
+                    className="w-full rounded-lg bg-cyan-500 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-600">
                         Pay Now
                     </button>
                 ) : booking.status ===

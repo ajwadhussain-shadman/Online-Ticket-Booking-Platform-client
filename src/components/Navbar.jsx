@@ -35,12 +35,14 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white md:hidden"
           >
+            
             {isMenuOpen ? (
               <HiX size={28} />
             ) : (
               <HiOutlineMenuAlt3 size={28} />
             )}
           </button>
+          
 
           <Link href="/" className="flex items-center gap-3">
             <Image

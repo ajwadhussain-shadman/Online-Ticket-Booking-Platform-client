@@ -12,7 +12,7 @@ const Banner = () => {
           priority
           className="object-cover"
         />
-
+  
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
