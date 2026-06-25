@@ -33,7 +33,10 @@ export async function POST(req) {
     bookingId:booking._id,
 ticketId:booking.ticketId,
 userId:booking.userId,
-bookingQuantity: booking.quantity
+bookingQuantity: booking.quantity,
+ticketTitle:booking.ticketTitle,
+
+vendorId:booking.vendorId
     },
     success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/cancel`,

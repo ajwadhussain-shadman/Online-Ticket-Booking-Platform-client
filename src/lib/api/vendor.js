@@ -13,6 +13,9 @@ export const getSingleTicket=async (id)=>{
 }
 
 export const updateTicket=async(id,ticketData)=>{
-    console.log(id,ticketData)
     return mutateData(`/api/tickets/${id}`,"PATCH",ticketData);
+}
+
+export const getVendorRevenue = async(vendorId)=>{
+    return fetchData(`/api/vendor/revenue/${vendorId}`)
 }

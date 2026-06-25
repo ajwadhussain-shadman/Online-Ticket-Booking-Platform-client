@@ -33,15 +33,20 @@ console.log( session.metadata);
   }
 
   if (status === 'complete') {
-    const {bookingId,ticketId,userId,bookingQuantity}=session.metadata;
+    const {bookingId,ticketId,userId,bookingQuantity,ticketTitle,vendorId}=session.metadata;
     const paymentData={
         bookingId:bookingId,
         ticketId:ticketId,
+        vendorId:vendorId,
         userId:userId,
+        ticketTitle:ticketTitle,
         bookingQuantity:bookingQuantity,
         amount: session.amount_total/100,
         stripeSessionId:session.id,
+        transactionId: session.payment_intent.id
     }
+    console.log(paymentData);
+    console.log('session:', session)
     await createPayment(paymentData);
     return (
       <section id="success">
