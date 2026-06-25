@@ -6,6 +6,7 @@ import { toggleAdvertise } from "@/lib/shared/ticket/toggleAdvertise";
 import { useRouter } from "next/navigation";
 
 const SmallDeviceAdvertiseRow = ({ ticket }) => {
+    
     const [isAdvertised, setIsAdvertised] = useState(ticket.isAdvertised);
 
     const router = useRouter()
