@@ -35,7 +35,6 @@ ticketId:booking.ticketId,
 userId:booking.userId,
 bookingQuantity: booking.quantity,
 ticketTitle:booking.ticketTitle,
-
 vendorId:booking.vendorId
     },
     success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
