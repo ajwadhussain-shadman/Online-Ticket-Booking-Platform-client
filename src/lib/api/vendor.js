@@ -19,3 +19,6 @@ export const updateTicket=async(id,ticketData)=>{
 export const getVendorRevenue = async(vendorId)=>{
     return fetchData(`/api/vendor/revenue/${vendorId}`)
 }
+export const markVendorFraud=async(id)=>{
+    return mutateData(`/api/users/fraud/${id}`,"PATCH")
+}
