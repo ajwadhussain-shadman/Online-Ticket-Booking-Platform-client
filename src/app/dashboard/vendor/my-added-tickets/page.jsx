@@ -9,7 +9,8 @@ import React from 'react';
 const MyAddedTickets = async () => {
 
     const user = await verifyRole('vendor');
-    const tickets = await getVendorTickets(user.id);
+    const ticketData = await getVendorTickets(user.id);
+    const tickets=ticketData.data;
     return (
         <div>
             <div className="mb-8">

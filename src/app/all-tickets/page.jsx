@@ -2,22 +2,32 @@ import React from "react";
 import TicketCard from "./TicketCard";
 import { getApprovedTickets } from "@/lib/shared/getApprovedTickets";
 import Link from "next/link";
+import { Pagination } from "@heroui/react";
 
 const AllTicketsPage = async ({ searchParams }) => {
     const filters = await searchParams;
+    const currentPage = Number(filters.page) || 1;
 
     const querySearch = new URLSearchParams(filters);
+    console.log("search", filters.page)
     querySearch.set("verificationStatus", "approved");
-
+    querySearch.set("page", currentPage);
     const queryString = querySearch.toString();
 
-    const tickets = await getApprovedTickets(queryString);
+    const ticketsData = await getApprovedTickets(queryString);
+    const tickets = ticketsData.data;
+    const totalPage = ticketsData.totalPage;
+    const pages = []
+    for (let i = 1; i <= totalPage; i++) {
+        pages.push(i)
+    }
+    console.log(tickets.data);
 
     return (
         <div className="min-h-screen bg-[#07111F]">
             <div className="mx-auto max-w-7xl px-4 py-8">
 
-                
+
                 <div className="mb-8">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-cyan-400">
                         All Tickets
@@ -42,14 +52,14 @@ const AllTicketsPage = async ({ searchParams }) => {
 
                         <form>
 
-                           
+
                             <div className="mb-8">
                                 <h3 className="mb-4 text-sm font-semibold text-gray-300">
                                     Transport Type
                                 </h3>
 
                                 <div className="space-y-3">
-                                    {["Bus", "Train", "Launch", "Plane"].map(
+                                    {["Bus", "Train", "Launch", "Flight"].map(
                                         (type) => (
                                             <label
                                                 key={type}
@@ -72,7 +82,7 @@ const AllTicketsPage = async ({ searchParams }) => {
                                 </div>
                             </div>
 
-                       
+
                             <div className="mb-8">
                                 <h3 className="mb-4 text-sm font-semibold text-gray-300">
                                     Sort Price
@@ -116,10 +126,10 @@ const AllTicketsPage = async ({ searchParams }) => {
                         </form>
                     </aside>
 
-                    
+
                     <section>
 
-                       
+
                         <form className="mb-6 rounded-3xl border border-cyan-500/20 bg-[#091425] p-5">
                             <div className="grid gap-4 md:grid-cols-3">
 
@@ -147,7 +157,7 @@ const AllTicketsPage = async ({ searchParams }) => {
                             </div>
                         </form>
 
-                        
+
                         <div className="mb-6 flex items-center justify-between">
                             <h2 className="text-xl font-semibold text-white">
                                 Available Tickets
@@ -158,7 +168,7 @@ const AllTicketsPage = async ({ searchParams }) => {
                             </span>
                         </div>
 
-                       
+
                         {tickets.length > 0 ? (
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                                 {tickets.map((ticket) => (
@@ -187,6 +197,61 @@ const AllTicketsPage = async ({ searchParams }) => {
                         )}
                     </section>
                 </div>
+            </div>
+            <div className="my-5">
+                <Pagination size="xl" className="mt-10 justify-center">
+                    <Pagination.Content>
+
+                        <Pagination.Item>
+                            <Pagination.Previous
+                                isDisabled={currentPage === 1}
+                            >
+                                <Link
+                                    href={`/all-tickets?page=${currentPage-1}`}
+                                    className="flex items-center gap-2"
+                                >
+                                    <Pagination.PreviousIcon />
+                                    Prev
+                                </Link>
+                            </Pagination.Previous>
+                        </Pagination.Item>
+
+                        {pages.map((p) => (
+                            <Pagination.Item key={p}>
+                                <Link
+                                //  href={createPageLink(p)}
+                                href={`/all-tickets?page=${p}`}
+                                 >
+                                    <Pagination.Link
+                                        isActive={p === currentPage}
+                                        className={
+                                            p === currentPage
+                                                ? "bg-cyan-500 text-white"
+                                                : ""
+                                        }
+                                    >
+                                        {p}
+                                    </Pagination.Link>
+                                </Link>
+                            </Pagination.Item>
+                        ))}
+
+                        <Pagination.Item>
+                            <Pagination.Next
+                                isDisabled={currentPage === totalPage}
+                            >
+                                <Link
+                                    href={`/all-tickets?page=${currentPage+1}`}
+                                    className="flex items-center gap-2"
+                                >
+                                    Next
+                                    <Pagination.NextIcon />
+                                </Link>
+                            </Pagination.Next>
+                        </Pagination.Item>
+
+                    </Pagination.Content>
+                </Pagination>
             </div>
         </div>
     );
