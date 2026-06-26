@@ -1,4 +1,4 @@
-
+'use server'
 import { redirect } from "next/navigation";
 import { auth } from "../auth";
 import { headers } from "next/headers";
@@ -25,11 +25,10 @@ const res = await fetch(`${url}${path}`)
  }
 
 export const fetchData = async (path) => {
-  const session = await auth.api.getSession({
+  const {token} = await auth.api.getToken({
     headers: await headers(),
   });
- console.log("session",session)
-  const token = session?.session?.token;
+ console.log("token",token)
   console.log('fetch data token',token)
   const res = await fetch(`${url}${path}`, {
     headers: {

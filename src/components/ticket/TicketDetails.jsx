@@ -1,10 +1,12 @@
 import React from 'react';
 import Countdown from './Countdown';
 import BookTicketModal from './BookTicketModal';
-import { verifyRole } from '@/lib/protected-route';
+import { getUserSession } from '@/lib/getuser-data';
+
 
 const TicketDetails = async ({ ticket }) => {
-    const user = await verifyRole('user')
+    const user= await getUserSession();
+     
     const isExpired = new Date(ticket.departureDateTime) < new Date();
     const isSoldOut = ticket.quantity <= 0;
     return (

@@ -8,6 +8,7 @@ const TicketDetailsPage = async ({ params }) => {
   const { id } = await params;
 
   const ticket = await getSingleTicket(id);
+  console.log('ticket',ticket)
 
   return (
     <div className="min-h-screen bg-[#07111F] py-10">
