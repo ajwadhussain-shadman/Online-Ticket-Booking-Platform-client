@@ -1,7 +1,8 @@
-import { getVendorRevenue } from '@/lib/api/vendor';
+
 import { verifyRole } from '@/lib/protected-route';
 import React from 'react';
 import TicketChart from './TicketChart';
+import { getVendorRevenue } from '@/lib/api/vendor-server';
 
 const RevenueOverview = async () => {
      const user=await verifyRole('vendor');

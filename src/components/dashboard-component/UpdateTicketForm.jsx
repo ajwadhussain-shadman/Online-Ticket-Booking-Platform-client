@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import TransportTypeSelector from "./TransportTypeSelector";
 import { uploadImage } from "@/lib/uploadImage";
 import toast from "react-hot-toast";
-import { updateTicket } from "@/lib/api/vendor";
+
 import { redirect } from "next/navigation";
+import { updateTicket } from "@/lib/api/vendor-client";
 
 const UpdateTicketForm = ({ user, ticket}) => {
   

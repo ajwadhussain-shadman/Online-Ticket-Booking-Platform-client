@@ -1,6 +1,7 @@
 "use client";
 
-import { updateTicket } from "@/lib/api/vendor";
+
+import { updateTicket } from "@/lib/api/vendor-client";
 import toast from "react-hot-toast";
 
 const AdminTicketRow = ({ ticket }) => {

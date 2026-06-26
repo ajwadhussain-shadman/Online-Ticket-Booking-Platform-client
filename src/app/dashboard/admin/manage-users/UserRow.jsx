@@ -1,5 +1,6 @@
 'use client'
-import { markVendorFraud } from '@/lib/api/vendor';
+
+import { markVendorFraud } from '@/lib/api/vendor-client';
 import { updateUserRole } from '@/lib/user/updateUserRole';
 import { useRouter } from "next/navigation";
 import React from 'react';

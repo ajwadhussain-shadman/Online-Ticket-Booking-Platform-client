@@ -1,5 +1,8 @@
 
 import { redirect } from "next/navigation";
+import { auth } from "../auth";
+import { headers } from "next/headers";
+
 
 const url=process.env.NEXT_PUBLIC_BASE_SERVER;
 const handleStatusCode=(res)=>{
@@ -16,18 +19,23 @@ const handleStatusCode=(res)=>{
 //   }
     return res.json();
 }
-export const fetchData=async(path)=>{
-  const res= await fetch(`${url}${path}`)
-  return handleStatusCode(res);
-}
+ export const normalFetch=async(path)=>{
+const res = await fetch(`${url}${path}`)
+ return handleStatusCode(res);
+ }
 
-export const mutateData=async(path,method="POST",data)=>{
-    const res= await fetch(`${url}${path}`,{
-        method:method,
-        headers:{
-            'Content-Type':'application/json',
-        },
-        body:JSON.stringify(data),
-    })
-    return handleStatusCode(res);
-}
+export const fetchData = async (path) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+ console.log("session",session)
+  const token = session?.session?.token;
+  console.log('fetch data token',token)
+  const res = await fetch(`${url}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return handleStatusCode(res);
+};

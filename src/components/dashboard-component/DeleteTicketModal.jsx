@@ -3,8 +3,9 @@
 import toast from "react-hot-toast";
 import { Button, Modal } from "@heroui/react";
 import { FaTrash } from "react-icons/fa";
+import { deleteTicket } from "@/lib/api/vendor-client";
 
-import { deleteTicket } from "@/lib/api/vendor";
+
 
 const DeleteTicketModal = ({ ticketId , isDisabled}) => {
   const handleDelete = async () => {

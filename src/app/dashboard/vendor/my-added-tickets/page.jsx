@@ -1,6 +1,7 @@
 
 import MyTicketCard from '@/components/dashboard-component/MyTicketCard';
-import { getVendorTickets } from '@/lib/api/vendor';
+import { getVendorTickets } from '@/lib/api/vendor-server';
+
 import { verifyRole } from '@/lib/protected-route';
 
 import React from 'react';

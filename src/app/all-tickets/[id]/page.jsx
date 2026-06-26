@@ -1,6 +1,7 @@
 
 import TicketDetails from "@/components/ticket/TicketDetails";
-import { getSingleTicket } from "@/lib/api/vendor";
+import { getSingleTicket } from "@/lib/api/vendor-server";
+
 
 
 const TicketDetailsPage = async ({ params }) => {

@@ -1,5 +1,5 @@
 import UpdateTicketForm from '@/components/dashboard-component/UpdateTicketForm';
-import { getSingleTicket } from '@/lib/api/vendor';
+import { getSingleTicket } from '@/lib/api/vendor-server';
 import { verifyRole } from '@/lib/protected-route';
 import React from 'react';
 

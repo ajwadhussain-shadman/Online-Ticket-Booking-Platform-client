@@ -1,5 +1,7 @@
-import DashboardProfile from "@/components/dashboard-component/DashboardProfile";
-import { verifyRole } from "@/lib/verifyRole";
+
+import DashBoardProfile from "@/components/dashboard-component/DashBoardProfile";
+import { verifyRole } from "@/lib/protected-route";
+
 
 const AdminProfilePage = async () => {
   const user = await verifyRole("admin");
@@ -10,7 +12,7 @@ const AdminProfilePage = async () => {
         Admin Profile
       </h1>
 
-      <DashboardProfile user={user} />
+      <DashBoardProfile user={user} />
     </div>
   );
 };
