@@ -1,6 +1,6 @@
 import React from "react";
 import TicketCard from "./TicketCard";
-import { getApprovedTickets } from "@/lib/shared/getApprovedTickets";
+import { getApprovedTickets, getApprovedTicketsLength } from "@/lib/shared/getApprovedTickets";
 import Link from "next/link";
 import { Pagination } from "@heroui/react";
 
@@ -21,8 +21,8 @@ const AllTicketsPage = async ({ searchParams }) => {
     for (let i = 1; i <= totalPage; i++) {
         pages.push(i)
     }
-    console.log(tickets.data);
-
+    const numberOfApprovedTickets= await getApprovedTicketsLength()
+    
     return (
         <div className="min-h-screen bg-[#07111F]">
             <div className="mx-auto max-w-7xl px-4 py-8">
@@ -30,7 +30,7 @@ const AllTicketsPage = async ({ searchParams }) => {
 
                 <div className="mb-8">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-cyan-400">
-                        All Tickets
+                        All Tickets 
                     </p>
 
                     <h1 className="text-3xl font-bold text-white md:text-4xl">
@@ -160,7 +160,7 @@ const AllTicketsPage = async ({ searchParams }) => {
 
                         <div className="mb-6 flex items-center justify-between">
                             <h2 className="text-xl font-semibold text-white">
-                                Available Tickets
+                               Available {numberOfApprovedTickets}
                             </h2>
 
                             <span className="rounded-full bg-cyan-500/10 px-4 py-2 text-sm text-cyan-400">

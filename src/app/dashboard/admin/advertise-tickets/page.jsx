@@ -6,7 +6,9 @@ import { getApprovedTickets } from '@/lib/shared/getApprovedTickets';
 
 const AdvertiseTickets = async () => {
     const user=await verifyRole('admin');
-      const tickets = await getApprovedTickets();
+      const ticketData = await getApprovedTickets();
+         const tickets=ticketData.data;
+     
     return (
        <div className="space-y-8">
 

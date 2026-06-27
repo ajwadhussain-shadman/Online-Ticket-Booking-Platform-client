@@ -76,7 +76,7 @@ console.log( session.metadata);
     </div>
 
     <a
-      href="/dashboard/my-bookings"
+      href="/dashboard/user/my-booked-tickets"
       className="mt-6 inline-block w-full rounded-xl bg-cyan-500 py-3 font-semibold text-white"
     >
       Go To My Bookings

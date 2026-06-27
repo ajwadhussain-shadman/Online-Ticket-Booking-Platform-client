@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { dashboardLinks } from "@/lib/dashboardLinks";
+import DashboardLink from "./DashboardLink";
+
 
 const DashBoardSideBar = ({ user }) => {
   const links = dashboardLinks[user?.role] || [];
@@ -29,22 +31,22 @@ const DashBoardSideBar = ({ user }) => {
         {user?.role} Panel
       </p>
 
-      <div className="flex flex-wrap gap-2 md:block md:space-y-2">
-        <Link
+      <div className="flex flex-col gap-2  md:space-y-2">
+        <DashboardLink
           href="/dashboard"
-          className="rounded-lg px-4 py-2 text-gray-300 transition hover:bg-cyan-500/10 hover:text-cyan-400 md:block md:px-4 md:py-3"
+  
         >
           Dashboard Home
-        </Link>
+        </DashboardLink>
 
         {links.map((link) => (
-          <Link
+          <DashboardLink
             key={link.href}
             href={link.href}
-            className="rounded-lg px-4 py-2 text-gray-300 transition hover:bg-cyan-500/10 hover:text-cyan-400 md:block md:px-4 md:py-3"
+            
           >
             {link.name}
-          </Link>
+          </DashboardLink>
         ))}
       </div>
     </aside>

@@ -7,6 +7,7 @@ import { getVendorRevenue } from '@/lib/api/vendor-server';
 const RevenueOverview = async () => {
      const user=await verifyRole('vendor');
      const revenue=await getVendorRevenue(user.id);
+     console.log("revenue",revenue)
     return (
        <div className="space-y-8">
       <div>

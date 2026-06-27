@@ -1,4 +1,5 @@
 "use client";
+
 import { updateBookingStatus } from "@/lib/bookings/updateBookingStatus";
 import toast from "react-hot-toast";
 

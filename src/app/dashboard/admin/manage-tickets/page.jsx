@@ -1,11 +1,12 @@
 import AdminTicketRow from '@/components/dashboard-component/AdminTicketRow';
 import { verifyRole } from '@/lib/protected-route';
-import { getAllTickets } from '@/lib/shared/getAllTickets';
+import { getAdminAllTickets, getAllTickets } from '@/lib/shared/getAllTickets';
 import React from 'react';
 
 const ManageTickets = async () => {
     const user=await verifyRole('admin');
-    const tickets = await getAllTickets();
+    const tickets = await getAdminAllTickets();
+   
 
   return (
     <div>

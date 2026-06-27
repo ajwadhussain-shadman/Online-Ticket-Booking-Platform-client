@@ -9,6 +9,10 @@ import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { FiChevronDown, FiLogOut } from "react-icons/fi";
 
 import { authClient } from "@/lib/auth-client";
+import { Button, Dropdown, useTheme } from "@heroui/react";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { FaSignOutAlt } from "react-icons/fa";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +29,8 @@ const Navbar = () => {
 
     toast.success("Logged out successfully");
   };
-
+  
+  const {theme,setTheme}=useTheme();
   return (
     <nav className="sticky top-0 z-50 border-b border-cyan-500/10 bg-[#07111F]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-8">
@@ -64,31 +69,30 @@ const Navbar = () => {
         {/* Center Menu */}
         <ul className="hidden items-center gap-8 md:flex">
           <li>
-            <Link
+            <NavLink
               href="/"
-              className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-8 py-3 text-lg font-medium text-cyan-400 transition-all duration-300 hover:bg-cyan-500/20"
             >
               Home
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link
+            <NavLink
               href="/all-tickets"
-              className="text-lg font-medium text-gray-300 transition hover:text-cyan-400"
+
             >
               All Tickets
-            </Link>
+            </NavLink>
           </li>
 
           {!isPending && user && (
             <li>
-              <Link
+              <NavLink
                 href="/dashboard"
-                className="text-lg font-medium text-gray-300 transition hover:text-cyan-400"
+                
               >
                 Dashboard
-              </Link>
+              </NavLink>
             </li>
           )}
         </ul>
@@ -114,43 +118,59 @@ const Navbar = () => {
           )}
 
           {!isPending && user && (
-            <div className="flex items-center gap-4">
-              <Link
-                href="/dashboard/profile"
-                className="flex items-center gap-3 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-2 transition hover:border-cyan-500/40"
-              >
-                <Image
+
+            <div className="flex  gap-2 items-center">
+               <Image
                   src={
                     user.image ||
                     "https://w7.pngwing.com/pngs/188/501/png-transparent-computer-icons-anonymous-anonymity-anonymous-face-monochrome-head.png"
                   }
                   alt="User"
-                  width={42}
-                  height={42}
-                  className="h-10 w-10 rounded-full object-cover"
+                  width={30}
+                  height={30}
+                  className="h-7 w-7 rounded-full object-cover"
                 />
+              <Dropdown className="">
+  <Button
+    variant="ghost"
+    className="flex items-center gap-3 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-2"
+  >
+   
 
-                <div className="flex flex-col">
-                  <span className="max-w-[120px] truncate text-sm font-semibold text-white">
-                    {user.name}
-                  </span>
+    <div className="text-left p-2">
+      <p className="font-semibold text-white">
+        {user.name}
+      </p>
+      
+    </div>
 
-                  <span className="text-xs text-gray-400">
-                    My Profile
-                  </span>
-                </div>
+    <FiChevronDown />
+  </Button>
 
-                <FiChevronDown className="text-cyan-400" />
-              </Link>
+  <Dropdown.Popover>
+    <Dropdown.Menu>
 
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 rounded-full border border-red-500/20 px-4 py-2 text-red-400 transition hover:bg-red-500/10"
-              >
-                <FiLogOut />
-                Logout
-              </button>
+      <Dropdown.Item id="profile"
+      className={'bg-blue-400/50  font-bold mb-4'}>
+        <Link href={`/dashboard/${user.role}/profile`}>
+          <IoPersonCircleOutline className="inline-block text-3xl" /> My Profile
+        </Link>
+      </Dropdown.Item>
+
+      <Dropdown.Item
+        id="logout"
+        variant="danger"
+        onAction={handleLogout}
+        className={'bg-red-500/50 text-white font-semibold text-center'}
+      >
+       <FaSignOutAlt className="inline-block text-3xl" /> Logout
+      </Dropdown.Item>
+
+    </Dropdown.Menu>
+  </Dropdown.Popover>
+</Dropdown>
             </div>
+        
           )}
         </div>
       </div>
@@ -164,7 +184,7 @@ const Navbar = () => {
                 <Image
                   src={
                     user.image ||
-                    Person
+                    "https://w7.pngwing.com/pngs/188/501/png-transparent-computer-icons-anonymous-anonymity-anonymous-face-monochrome-head.png"
                   }
                   alt="User"
                   width={45}
@@ -211,7 +231,7 @@ const Navbar = () => {
                 </Link>
 
                 <Link
-                  href="/dashboard/profile"
+                  href={`/dashboard/${user.role}/profile`}
                   className="block rounded-xl px-4 py-3 font-medium text-gray-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -220,9 +240,9 @@ const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="w-full rounded-xl bg-red-500 px-4 py-3 font-medium text-white"
+                  className="w-full rounded-xl bg-red-500/60 px-4 py-3 font-medium text-white"
                 >
-                  Logout
+                  Logout <FaSignOutAlt className="ml-2 inline-block text-2xl" />
                 </button>
               </>
             )}
