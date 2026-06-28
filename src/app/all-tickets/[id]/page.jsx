@@ -1,12 +1,18 @@
 
 import TicketDetails from "@/components/ticket/TicketDetails";
 import { getSingleTicket } from "@/lib/api/vendor-server";
+import { getUserSession } from "@/lib/getuser-data";
+import { redirect } from "next/navigation";
 
 
 
 const TicketDetailsPage = async ({ params }) => {
+  const user= await getUserSession();
+   if(!user || null){
+    redirect('/auth/sign-in')
+   }
   const { id } = await params;
-
+   
   const ticket = await getSingleTicket(id);
   console.log('ticket',ticket)
 
