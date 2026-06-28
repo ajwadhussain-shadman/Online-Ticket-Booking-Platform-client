@@ -9,7 +9,7 @@ const AdvertisementCard = ({ ticket }) => {
   };
 
   return (
-    <div className="group overflow-hidden rounded-3xl border border-cyan-500/10 bg-[#091425] transition duration-300 hover:-translate-y-2 hover:border-cyan-500/40">
+    <div className="group overflow-hidden rounded-3xl border border-cyan-500/10  bg-yellow-100/50 dark:bg-[#091425] transition duration-300 hover:-translate-y-2 hover:border-cyan-500/40">
 
       <div className="relative overflow-hidden">
         <img
@@ -18,12 +18,12 @@ const AdvertisementCard = ({ ticket }) => {
           className="h-60 w-full object-cover transition duration-500 group-hover:scale-110"
         />
 
-        <span className="absolute left-4 top-4 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+        <span className="absolute left-4 top-4 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-gray-900 dark:text-white">
           Featured
         </span>
 
         <span
-          className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-semibold ${transportColor[ticket.transportType]}`}
+          className={`absolute right-4  top-4 rounded-full px-3 py-1 text-xs font-semibold ${transportColor[ticket.transportType]}`}
         >
           {ticket.transportType}
         </span>
@@ -32,11 +32,11 @@ const AdvertisementCard = ({ ticket }) => {
       <div className="space-y-5 p-6">
 
         <div>
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {ticket.title}
           </h3>
 
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 font-semibold dark:text-gray-400">
             {ticket.from} → {ticket.to}
           </p>
         </div>
@@ -52,10 +52,10 @@ const AdvertisementCard = ({ ticket }) => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between rounded-xl bg-[#0D1B2A] p-4">
+        <div className="flex items-center justify-between rounded-xl  bg-yellow-100 dark:bg-[#0D1B2A]  p-4">
 
           <div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs font-bold dark:text-gray-400">
               Price
             </p>
 
@@ -65,11 +65,11 @@ const AdvertisementCard = ({ ticket }) => {
           </div>
 
           <div className="text-right">
-            <p className="text-xs text-gray-400">
+            <p className="text-xs dark:text-gray-400">
               Seats
             </p>
 
-            <p className="text-lg font-semibold text-white">
+            <p className="text-lg font-semibold text-gray-900 dark:text-white">
               {ticket.quantity}
             </p>
           </div>

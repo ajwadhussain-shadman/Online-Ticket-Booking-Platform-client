@@ -15,12 +15,20 @@ const TicketChart = ({ revenue }) => {
     {
       name: "Added",
       tickets: revenue.totalTicketsAdded,
+      fill: "#06B6D4",
+    },
+    {
+      name: "Available",
+      tickets: revenue.totalAvailable,
+      fill: "#10B981",
     },
     {
       name: "Sold",
       tickets: revenue.totalSold,
+      fill: "#F59E0B",
     },
   ];
+
 
   return (
     <div className="rounded-3xl border border-cyan-500/10 bg-[#111827]/70 p-6 backdrop-blur">
@@ -72,10 +80,13 @@ const TicketChart = ({ revenue }) => {
 
           <Bar
             dataKey="tickets"
-            fill="#06B6D4"
             radius={[10, 10, 0, 0]}
             maxBarSize={80}
-          />
+          >
+            {data.map((entry) => (
+              <rect key={entry.name} fill={entry.fill} />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>

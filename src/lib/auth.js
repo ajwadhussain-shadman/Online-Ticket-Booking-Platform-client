@@ -11,6 +11,9 @@ export const auth = betterAuth({
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client
   }),
+  
+
+
    user: {
     additionalFields:{
         role: {
@@ -19,6 +22,8 @@ export const auth = betterAuth({
       },
           },
         },
+
+
    emailAndPassword: { 
     enabled: true, 
   },
@@ -32,7 +37,7 @@ export const auth = betterAuth({
     session:{
        cookieCache:{
         enabled:true,
-        strategy:jwt,
+        strategy:"jwt",
         maxAge:60*24*60
        }
     },

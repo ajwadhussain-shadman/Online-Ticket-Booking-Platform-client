@@ -6,7 +6,7 @@ const AdvertisementSection = async () => {
   const tickets = await getAdvertisedTicket();
 
   return (
-    <section className="bg-[#08111f] py-20">
+    <section className=" bg-yellow-50 dark:bg-[#07111F] py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -21,11 +21,11 @@ const AdvertisementSection = async () => {
               </span>
             </div>
 
-            <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl">
               Premium Routes
             </h2>
 
-            <p className="mt-4 max-w-xl text-lg text-gray-400">
+            <p className="mt-4 max-w-xl text-lg text-gray-900 dark:text-gray-400">
               Hand-picked deals with the best value and comfort.
             </p>
 

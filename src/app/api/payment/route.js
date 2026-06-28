@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { stripe } from '@/lib/stripe';
+import { metadata } from '@/app/layout';
 
 
 export async function POST(req) {
@@ -10,10 +11,11 @@ export async function POST(req) {
     const booking= await req.json();
 
     // Create Checkout Sessions from body params.
+   
    const session =
   await stripe.checkout.sessions.create({
     mode: "payment",
-
+    
     line_items: [
       {
         price_data: {
@@ -37,9 +39,11 @@ bookingQuantity: booking.quantity,
 ticketTitle:booking.ticketTitle,
 vendorId:booking.vendorId
     },
+    
     success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/cancel`,
   });
+  console.log("metadata from payment route",metadata)
    return NextResponse.json({url: session.url});
   } catch (err) {
     return NextResponse.json(

@@ -41,7 +41,7 @@ const routes = [
 
 const PopularRoutes = () => {
   return (
-    <section className="bg-[#08111F] py-20">
+    <section className="bg-yellow-50 dark:bg-[#08111F] py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
         <div className="mb-12">
@@ -54,7 +54,7 @@ const PopularRoutes = () => {
             </span>
           </div>
 
-          <h2 className="text-4xl font-extrabold text-white md:text-5xl">
+          <h2 className="text-4xl font-extrabold dark:dark:text-white md:text-5xl">
             Popular Routes
           </h2>
 
@@ -88,7 +88,7 @@ const PopularRoutes = () => {
               {/* Bottom Content */}
               <div className="absolute bottom-6 left-6 right-6">
 
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-3xl font-bold dark:text-white">
                   {route.from}
                   <span className="mx-2 text-cyan-400">→</span>
                   {route.to}

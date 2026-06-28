@@ -21,7 +21,7 @@ const AllTicketsPage = async ({ searchParams }) => {
     for (let i = 1; i <= totalPage; i++) {
         pages.push(i)
     }
-    const numberOfApprovedTickets= await getApprovedTicketsLength()
+
     
     return (
         <div className="min-h-screen bg-[#07111F]">
@@ -160,11 +160,11 @@ const AllTicketsPage = async ({ searchParams }) => {
 
                         <div className="mb-6 flex items-center justify-between">
                             <h2 className="text-xl font-semibold text-white">
-                               Available {numberOfApprovedTickets}
+                               Available 
                             </h2>
 
                             <span className="rounded-full bg-cyan-500/10 px-4 py-2 text-sm text-cyan-400">
-                                {tickets.length} Results
+                                {tickets.length} available
                             </span>
                         </div>
 

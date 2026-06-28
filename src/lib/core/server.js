@@ -21,20 +21,24 @@ const handleStatusCode=(res)=>{
 }
  export const normalFetch=async(path)=>{
 const res = await fetch(`${url}${path}`)
- return handleStatusCode(res);
+ return res.json() || []
  }
 
 export const fetchData = async (path) => {
-  const {token} = await auth.api.getToken({
-    headers: await headers(),
-  });
- console.log("token",token)
-  console.log('fetch data token',token)
-  const res = await fetch(`${url}${path}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+ try {
+    const result = await auth.api.getToken({
+      headers: await headers(),
+    });
+    
+    const token = result?.token || null;
+    
+    const res = await fetch(`${url}${path}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    });
 
-  return handleStatusCode(res);
+    return handleStatusCode(res);
+  } catch (error) {
+    console.log("fetchData error:", error);
+    return null;
+  }
 };

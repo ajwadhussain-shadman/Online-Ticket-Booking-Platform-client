@@ -42,7 +42,7 @@ const features = [
 
 const WhyChooseSection = () => {
   return (
-    <section className="bg-[#08111F] py-24">
+    <section className="bg-yellow-50 dark:bg-[#08111F] py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
 
@@ -58,7 +58,7 @@ const WhyChooseSection = () => {
 
           </div>
 
-          <h2 className="text-4xl font-extrabold text-white md:text-5xl">
+          <h2 className="text-4xl font-extrabold dark:text-white md:text-5xl">
             Why Choose TicketBari?
           </h2>
 
@@ -74,16 +74,16 @@ const WhyChooseSection = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="group rounded-3xl border border-white/10 bg-[#111827] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/30"
+              className="group rounded-3xl border border-white/10 bg-yellow-100 dark:bg-[#111827] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/30"
             >
               <div
-                className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-lg ${feature.color}`}
+                className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl dark:text-white shadow-lg ${feature.color}`}
               >
                 {feature.icon}
               </div>
 
 
-              <h3 className="text-3xl font-bold text-white">
+              <h3 className="text-3xl font-bold dark:text-white">
                 {feature.title}
               </h3>
 

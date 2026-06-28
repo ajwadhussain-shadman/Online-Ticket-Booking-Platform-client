@@ -8,7 +8,7 @@ const LatestTicketsSection = async () => {
   const tickets = await getLatestTickets();
 
   return (
-    <section className="bg-[#08111F] py-20">
+    <section className=" bg-yellow-50 dark:bg-[#08111F] py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
         
@@ -22,11 +22,11 @@ const LatestTicketsSection = async () => {
             </span>
           </div>
 
-          <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+          <h2 className="text-4xl font-extrabold tracking-tight dark:text-white md:text-5xl">
             Latest Tickets
           </h2>
 
-          <p className="mt-4 max-w-2xl text-lg text-gray-400">
+          <p className="mt-4 max-w-2xl text-lg font-semibold dark:text-gray-400">
             Newly added tickets across all routes and operators.
           </p>
 

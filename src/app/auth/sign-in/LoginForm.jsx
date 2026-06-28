@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-
+import {Icon} from "@iconify/react";
 import {
   Button,
   TextField,
@@ -153,10 +153,10 @@ const LoginForm = () => {
           variant="bordered"
           isLoading={googleLoading}
           onClick={handleGoogleLogin}
-          className="h-14 w-full border-cyan-500/30 bg-[#0D1B2A] text-white"
-        >
-          Continue with Google
-        </Button>
+          className="h-14 w-full border-cyan-500/30 bg-[#0D1B2A] text-white">
+        <Icon icon="devicon:google" />
+        Sign in with Google
+      </Button>
 
         {/* Footer */}
         <p className="text-center text-sm text-gray-400">

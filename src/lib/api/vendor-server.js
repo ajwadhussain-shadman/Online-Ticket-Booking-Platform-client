@@ -1,4 +1,4 @@
-import { fetchData } from "../core/server";
+import { fetchData, normalFetch } from "../core/server";
 
 export const getVendorTickets = async (vendorId) => {
   return fetchData(`/api/tickets?vendorId=${vendorId}`);

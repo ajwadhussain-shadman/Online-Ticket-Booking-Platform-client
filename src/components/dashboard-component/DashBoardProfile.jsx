@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-
+import annonomusImg from '../../../public/assets/annonomus.png'
 const DashBoardProfile = ({user}) => {
     return (
         <div className="rounded-3xl border border-cyan-500/20 bg-[#091425] p-8">
@@ -8,7 +8,7 @@ const DashBoardProfile = ({user}) => {
         <Image
           src={
             user?.image ||
-             "https://w7.pngwing.com/pngs/188/501/png-transparent-computer-icons-anonymous-anonymity-anonymous-face-monochrome-head.png"
+            annonomusImg
           }
           alt={user?.name}
           width={150}

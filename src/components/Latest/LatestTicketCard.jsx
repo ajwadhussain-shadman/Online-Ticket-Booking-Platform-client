@@ -9,7 +9,7 @@ const LatestTicketCard = ({ ticket }) => {
   };
 
   return (
-    <div className="group overflow-hidden rounded-3xl border border-white/10 bg-[#111827] transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/40">
+    <div className="group overflow-hidden rounded-3xl border border-white/10 bg-yellow-100 dark:bg-[#111827] transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/40">
 
       
       <div className="relative h-60 overflow-hidden">
@@ -59,7 +59,7 @@ const LatestTicketCard = ({ ticket }) => {
 
   
         <div>
-          <h2 className="line-clamp-1 text-xl font-bold text-white">
+          <h2 className="line-clamp-1 text-xl font-bold dark:text-white">
             {ticket.title}
           </h2>
 
@@ -68,7 +68,7 @@ const LatestTicketCard = ({ ticket }) => {
             {new Date(ticket.departureDateTime).toLocaleDateString()}
           </p>
            
-        <span className=" bottom-4 right-4 rounded-full border border-yellow-500/30 bg-yellow-500/20 px-3 py-1 mt-2 text-xs font-semibold text-yellow-400">
+        <span className=" bottom-4 right-4 rounded-full border border-yellow-500/30 bg-yellow-500/20 px-3 py-1 mt-2 text-xs font-semibold dark:text-yellow-400">
           {ticket.quantity} Seats
         </span>
           </div>
@@ -79,7 +79,7 @@ const LatestTicketCard = ({ ticket }) => {
           {ticket.perks.slice(0, 3).map((perk) => (
             <span
               key={perk}
-              className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300"
+              className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs dark:text-cyan-300"
             >
               {perk}
             </span>
@@ -94,7 +94,7 @@ const LatestTicketCard = ({ ticket }) => {
               Price
             </p>
 
-            <h3 className="text-3xl font-bold text-white">
+            <h3 className="text-3xl font-bold dark:text-white">
               ৳{ticket.price}
             </h3>
           </div>

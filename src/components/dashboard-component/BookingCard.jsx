@@ -27,6 +27,7 @@ const showCountdown = booking.status !== "rejected" &&  booking.status !== "paid
       quantity: booking.quantity, 
       ticketTitle: booking.ticketTitle,
       totalPrice: booking.totalPrice,
+      vendorId:booking.vendorId
     }),
   });
 
@@ -138,7 +139,7 @@ const showCountdown = booking.status !== "rejected" &&  booking.status !== "paid
                       onClick={handlePayment}
                     className="w-full rounded-lg bg-cyan-500 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-600">
                         Pay Now
-                    </button>
+                    </button> 
                 ) : booking.status ===
                     "accepted" &&
                     isExpired ? (

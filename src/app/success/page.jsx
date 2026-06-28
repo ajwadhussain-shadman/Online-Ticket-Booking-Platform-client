@@ -45,8 +45,7 @@ console.log( session.metadata);
         stripeSessionId:session.id,
         transactionId: session.payment_intent.id
     }
-    console.log(paymentData);
-    console.log('session:', session)
+     console.log("Vendor ID:", session.metadata.vendorId);
     await createPayment(paymentData);
     return (
       <section id="success">

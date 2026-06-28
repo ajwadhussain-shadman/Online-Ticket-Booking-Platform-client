@@ -6,7 +6,7 @@ import { SiStripe } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-cyan-500/10 bg-[#07111F]">
+    <footer className="border-t border-cyan-500/10 bg-yellow-50 dark:bg-[#07111F]">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           
@@ -14,14 +14,14 @@ const Footer = () => {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <Image
-                src="/assets/logo.png"
+                src="/assets/Logo.png"
                 alt="TicketBari"
                 width={40}
                 height={40}
               />
 
               <h2 className="text-2xl font-bold">
-                <span className="text-white">Ticket</span>
+                <span className="dark:text-white">Ticket</span>
                 <span className="text-cyan-400">Bari</span>
               </h2>
             </div>
@@ -34,7 +34,7 @@ const Footer = () => {
 
           {/* Column 2 */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">
+            <h3 className="mb-4 text-lg font-semibold dark:text-white">
               Quick Links
             </h3>
 
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Column 3 */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">
+            <h3 className="mb-4 text-lg font-semibold dark:text-white">
               Contact Info
             </h3>
 
@@ -95,14 +95,14 @@ const Footer = () => {
 
           {/* Column 4 */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">
+            <h3 className="mb-4 text-lg font-semibold dark:text-white">
               Payment Methods
             </h3>
 
             <div className="flex items-center gap-3 rounded-2xl border border-cyan-500/10 bg-white/5 p-4">
               <SiStripe className="text-4xl text-cyan-400" />
               <div>
-                <p className="font-medium text-white">Stripe</p>
+                <p className="font-medium dark:text-white">Stripe</p>
                 <p className="text-sm text-gray-400">
                   Secure Online Payments
                 </p>
