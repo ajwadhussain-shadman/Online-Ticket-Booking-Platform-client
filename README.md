@@ -196,6 +196,16 @@ cors
 dotenv
 
 ```
+---
+
+## Resources
+
+- **Live Website:** https://online-ticket-booking-platform-clie-phi.vercel.app
+- **Client Repository:** https://github.com/ajwadhussain-shadman/Online-Ticket-Booking-Platform-client
+- **Server Repository:** https://github.com/ajwadhussain-shadman/Online-Ticket-Booking-Platform-server-
+
+---
+
 
 
 
