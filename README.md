@@ -18,6 +18,82 @@ The goal of TicketBari is to provide a centralized platform where:
 - Admins can verify vendors, approve tickets, and manage the entire system.
 
 ---
+# Installation Guide
+
+## 1. Clone the Repository
+
+### Client
+
+```bash
+git clone https://github.com/ajwadhussain-shadman/Online-Ticket-Booking-Platform-client.git
+```
+
+### Server
+
+```bash
+git clone https://github.com/ajwadhussain-shadman/Online-Ticket-Booking-Platform-server.git
+```
+
+---
+
+## 2. Install Dependencies
+
+### Client
+
+```bash
+cd Online-Ticket-Booking-Platform-client
+npm install
+```
+
+### Server
+
+```bash
+cd Online-Ticket-Booking-Platform-server
+npm install
+```
+
+---
+
+## 3. Configure Environment Variables
+
+### Client (.env.local)
+
+```env
+NEXT_PUBLIC_BASE_SERVER=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+NEXT_PUBLIC_IMGBB_API_KEY=
+BETTER_AUTH_URL=
+BETTER_AUTH_SECRET=
+```
+
+### Server (.env)
+
+```env
+MONGO_URI=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+STRIPE_SECRET_KEY=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+```
+
+---
+
+## 4. Start the Development Server
+
+### Client
+
+```bash
+npm run dev
+```
+
+### Server
+
+```bash
+npm start
+```
+
+---
 
 ##  Key Features
 
