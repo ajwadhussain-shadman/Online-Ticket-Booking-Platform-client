@@ -7,11 +7,11 @@ const ManageUsers =async () => {
     const user=await verifyRole('admin');
     const users=await getAllUsers();
     return (
-        <div className="overflow-hidden rounded-3xl border border-cyan-500/10 bg-[#111827]/70 backdrop-blur">
+        <div className="overflow-hidden rounded-3xl border border-cyan-500/10 bg-yellow-50 dark:bg-[#111827]/70 backdrop-blur">
   <div className="overflow-x-auto">
     <table className="w-full min-w-[900px]">
       <thead>
-        <tr className="border-b border-white/10 text-left text-sm uppercase tracking-wider text-gray-500">
+        <tr className="border-b border-white/10 text-left text-sm uppercase tracking-wider dark:text-gray-500">
           <th className="px-6 py-5">User</th>
           <th className="px-6 py-5">Email</th>
           <th className="px-6 py-5">Role</th>

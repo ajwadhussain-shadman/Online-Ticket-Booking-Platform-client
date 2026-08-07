@@ -13,7 +13,7 @@ const DashBoardSideBar = ({ user }) => {
       className="
         w-full
         border-b border-cyan-500/10
-        bg-[#091425]
+        bg-yellow-50 dark:bg-[#091425]
         p-4
 
         md:min-h-screen

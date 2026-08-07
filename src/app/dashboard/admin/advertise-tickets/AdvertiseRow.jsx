@@ -35,17 +35,17 @@ const AdvertiseRow = ({ ticket }) => {
   };
 
   return (
-    <tr className="border-b border-white/5 hover:bg-white/5 transition">
+    <tr className="border-b border-white/5 dark:hover:bg-white/5 transition">
       <td className="px-6 py-5">
         <div>
-          <h3 className="font-semibold text-white">
+          <h3 className="font-semibold dark:text-white">
             {ticket.from} → {ticket.to}
           </h3>
-          <p className="text-sm text-gray-400">{ticket.title}</p>
+          <p className="text-sm dark:text-gray-400">{ticket.title}</p>
         </div>
       </td>
 
-      <td className="px-6 py-5 text-gray-300">{ticket.vendorName}</td>
+      <td className="px-6 py-5 dark:text-gray-300">{ticket.vendorName}</td>
 
       <td className="px-6 py-5">
         <span className={`rounded-full px-4 py-2 text-sm font-medium ${typeColor[ticket.transportType]}`}>
@@ -53,9 +53,9 @@ const AdvertiseRow = ({ ticket }) => {
         </span>
       </td>
 
-      <td className="px-6 py-5 font-semibold text-white">৳{ticket.price}</td>
+      <td className="px-6 py-5 font-semibold dark:text-white">৳{ticket.price}</td>
 
-      <td className="px-6 py-5 text-gray-300">{ticket.quantity}</td>
+      <td className="px-6 py-5 dark:text-gray-300">{ticket.quantity}</td>
 
       <td className="px-6 py-5">
         <button
@@ -65,9 +65,9 @@ const AdvertiseRow = ({ ticket }) => {
           className="flex items-center gap-2 cursor-pointer"
         >
           <div className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${isAdvertised ? "bg-blue-600" : "bg-gray-600"}`}>
-            <div className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-300 ${isAdvertised ? "translate-x-6" : "translate-x-0"}`} />
+            <div className={`absolute top-0.5 left-0.5 w-5 h-5 dark:bg-white rounded-full shadow transition-transform duration-300 ${isAdvertised ? "translate-x-6" : "translate-x-0"}`} />
           </div>
-          <span className="text-sm text-gray-400">
+          <span className="text-sm dark:text-gray-400">
             {isAdvertised ? "Advertised" : "Not Advertised"}
           </span>
         </button>

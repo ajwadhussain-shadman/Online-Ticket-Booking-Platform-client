@@ -11,7 +11,7 @@ const RevenueOverview = async () => {
     return (
        <div className="space-y-8">
       <div>
-        <h1 className="text-4xl font-bold text-white">
+        <h1 className="text-4xl font-bold dark:text-white">
           Revenue Overview
         </h1>
 
@@ -21,18 +21,18 @@ const RevenueOverview = async () => {
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        <div className="rounded-3xl border border-cyan-500/10 bg-[#111827]/70 p-6 backdrop-blur">
-          <p className="text-sm text-gray-400">
+        <div className="rounded-3xl border border-cyan-500/10 bg-yellow-100 dark:bg-[#111827]/70 p-6 backdrop-blur">
+          <p className="text-sm dark:text-gray-400">
             Total Tickets Added
           </p>
 
-          <h2 className="mt-3 text-4xl font-bold text-white">
+          <h2 className="mt-3 text-4xl font-bold dark:text-white">
             {revenue.totalTicketsAdded}
           </h2>
         </div>
 
-        <div className="rounded-3xl border border-green-500/10 bg-[#111827]/70 p-6 backdrop-blur">
-          <p className="text-sm text-gray-400">
+        <div className="rounded-3xl border border-green-500/10 bg-yellow-100 dark:bg-[#111827]/70 p-6 backdrop-blur">
+          <p className="text-sm dark:text-gray-400">
             Tickets Sold
           </p>
 
@@ -41,8 +41,8 @@ const RevenueOverview = async () => {
           </h2>
         </div>
 
-        <div className="rounded-3xl border border-yellow-500/10 bg-[#111827]/70 p-6 backdrop-blur">
-          <p className="text-sm text-gray-400">
+        <div className="rounded-3xl border border-yellow-500/10 bg-yellow-100 dark:bg-[#111827]/70 p-6 backdrop-blur">
+          <p className="text-sm dark:text-gray-400">
             Total Revenue
           </p>
 

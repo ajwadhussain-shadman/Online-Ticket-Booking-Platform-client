@@ -28,7 +28,7 @@ const SmallDeviceAdvertiseRow = ({ ticket }) => {
     };
 
     return (
-        <div className="rounded-2xl border border-cyan-500/10 bg-[#111827]/70 p-5">
+        <div className="rounded-2xl border border-cyan-500/10 dark:bg-[#111827]/70 p-5">
 
             <div className="flex items-center justify-between">
                 <h2 className="font-bold text-white">
@@ -57,7 +57,7 @@ const SmallDeviceAdvertiseRow = ({ ticket }) => {
                 </button>
             </div>
 
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm dark:text-gray-400">
                 {ticket.title}
             </p>
 
@@ -65,25 +65,25 @@ const SmallDeviceAdvertiseRow = ({ ticket }) => {
             <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
 
                 <div>
-                    <p className="text-gray-500">
+                    <p className="dark:text-gray-500">
                         Vendor
                     </p>
-                    <p className="text-white">
+                    <p className="dark:text-white">
                         {ticket.vendorName}
                     </p>
                 </div>
 
                 <div>
-                    <p className="text-gray-500">
+                    <p className="dark:text-gray-500">
                         Type
                     </p>
-                    <p className="text-white">
+                    <p className="dark:text-white">
                         {ticket.transportType}
                     </p>
                 </div>
 
                 <div>
-                    <p className="text-gray-500">
+                    <p className="dark:text-gray-500">
                         Price
                     </p>
                     <p className="font-semibold text-cyan-400">
@@ -95,7 +95,7 @@ const SmallDeviceAdvertiseRow = ({ ticket }) => {
                     <p className="text-gray-500">
                         Seats
                     </p>
-                    <p className="text-white">
+                    <p className=" dark:text-white">
                         {ticket.quantity}
                     </p>
                 </div>

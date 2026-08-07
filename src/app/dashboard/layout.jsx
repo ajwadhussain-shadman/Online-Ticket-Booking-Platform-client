@@ -10,7 +10,7 @@ const DashboardLayout = async ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#07111F]">
+    <div className="min-h-screen bg-yellow-50 dark:bg-[#07111F]">
       <div className="mx-auto flex max-w-7xl flex-col md:flex-row">
         <DashBoardSideBar user={user} />
 

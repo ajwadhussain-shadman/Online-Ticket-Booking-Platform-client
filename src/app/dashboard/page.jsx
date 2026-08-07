@@ -5,7 +5,7 @@ const DashboardPage = async () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold text-white">
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
         Welcome, {user?.name}
       </h1>
 
@@ -21,8 +21,8 @@ const DashboardPage = async () => {
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#091425] py-2  px-4">
-          <h3 className="text-lg font-semibold text-white">
+        <div className="rounded-2xl border border-cyan-500/20 bg-yellow-100 dark:bg-[#091425] py-2  px-4">
+          <h3 className="text-lg font-semibold  dark:text-white">
             Role
           </h3>
 
@@ -31,8 +31,8 @@ const DashboardPage = async () => {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#091425]  py-2 px-4">
-          <h3 className="text-lg font-semibold text-white">
+        <div className="rounded-2xl border border-cyan-500/20 bg-yellow-100 dark:bg-[#091425]  py-2 px-4">
+          <h3 className="text-lg font-semibold dark:text-white">
             Email
           </h3>
 

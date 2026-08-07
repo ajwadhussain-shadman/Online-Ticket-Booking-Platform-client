@@ -11,7 +11,7 @@ const RequestedBookings = async () => {
     return (
        <div className="space-y-6">
   <div>
-    <h1 className="text-4xl font-bold text-white">
+    <h1 className="text-4xl font-bold dark:text-white">
       Booking Requests
     </h1>
 
@@ -20,12 +20,12 @@ const RequestedBookings = async () => {
     </p>
   </div>
 
-  <div className="overflow-hidden rounded-3xl border border-cyan-500/10 bg-[#111827]/70 backdrop-blur">
+  <div className="overflow-hidden rounded-3xl border border-cyan-500/10 dark:bg-[#111827]/70 backdrop-blur">
     <div className="overflow-x-auto">
       <div className='hidden md:block'>
         <table className="w-full ">
         <thead>
-          <tr className="border-b border-white/10 text-left text-sm uppercase tracking-wider text-gray-500">
+          <tr className="border-b border-white/10 text-left text-sm uppercase tracking-wider dark:text-gray-500">
             <th className="px-6 py-5">Passenger</th>
             <th className="px-6 py-5">Ticket</th>
             <th className="px-6 py-5">Quantity</th>

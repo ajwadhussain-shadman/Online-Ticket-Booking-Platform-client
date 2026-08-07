@@ -66,7 +66,7 @@ const AddTicketForm = ({ user }) => {
             name="title"
             type="text"
             placeholder="Hero Express"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
 
@@ -80,7 +80,7 @@ const AddTicketForm = ({ user }) => {
             name="price"
             type="number"
             placeholder="1200"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
 
@@ -94,7 +94,7 @@ const AddTicketForm = ({ user }) => {
             name="from"
             type="text"
             placeholder="Dhaka"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
 
@@ -108,7 +108,7 @@ const AddTicketForm = ({ user }) => {
             name="to"
             type="text"
             placeholder="Sylhet"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
       </div>
@@ -137,7 +137,7 @@ const AddTicketForm = ({ user }) => {
             type="number"
             min="1"
             placeholder="40"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400 placeholder:text-gray-500"
           />
         </div>
 
@@ -150,7 +150,7 @@ const AddTicketForm = ({ user }) => {
           <input
             name="departureDateTime"
             type="datetime-local"
-            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 text-white outline-none transition-all focus:border-cyan-400"
+            className="w-full rounded-xl border border-cyan-500/20 bg-[#0D1B2A] px-4 py-3 dark:text-white outline-none transition-all focus:border-cyan-400"
           />
         </div>
       </div>
@@ -206,7 +206,7 @@ const AddTicketForm = ({ user }) => {
                 className="h-4 w-4 accent-cyan-500"
               />
 
-              <span className="text-sm text-white">
+              <span className="text-sm dark:text-white">
                 {perk}
               </span>
             </label>
@@ -235,7 +235,7 @@ const AddTicketForm = ({ user }) => {
             <div className="space-y-2">
               <p className="text-4xl">📷</p>
 
-              <h3 className="font-medium text-white">
+              <h3 className="font-medium dark:text-white">
                 Upload Ticket Image
               </h3>
 
@@ -255,7 +255,7 @@ const AddTicketForm = ({ user }) => {
       <button
   type="submit"
   disabled={loading}
-  className="h-14 w-full rounded-xl bg-cyan-500 text-base font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+  className="h-14 w-full rounded-xl bg-cyan-500 text-base font-semibold dark:text-white disabled:cursor-not-allowed disabled:opacity-50"
 >
   {loading ? "Adding Ticket..." : "Add Ticket"}
 </button>

@@ -12,7 +12,10 @@ export const auth = betterAuth({
     client
   }),
   
-
+ trustedOrigins: [
+    "http://localhost:3000",
+    "https://online-ticket-booking-platform-clie-phi.vercel.app",
+  ],
 
    user: {
     additionalFields:{

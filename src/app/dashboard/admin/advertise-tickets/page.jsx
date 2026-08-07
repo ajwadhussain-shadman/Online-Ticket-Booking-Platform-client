@@ -14,7 +14,7 @@ const AdvertiseTickets = async () => {
 
       {/* Heading */}
       <div>
-        <h1 className="text-4xl font-bold text-white">
+        <h1 className="text-4xl font-bold dark:text-white">
           Advertise Tickets
         </h1>
 
@@ -24,7 +24,7 @@ const AdvertiseTickets = async () => {
       </div>
 
       {/* Desktop Table */}
-      <div className="hidden overflow-hidden rounded-3xl border border-cyan-500/10 bg-[#111827]/70 md:block">
+      <div className="hidden overflow-hidden rounded-3xl border border-cyan-500/10 dark:bg-[#111827]/70 md:block">
         <table className="w-full">
 
           <thead>

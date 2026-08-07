@@ -38,11 +38,11 @@ const BookingRow = ({ booking }) => {
       </div>
 
       <div>
-        <h3 className="font-semibold text-white">
+        <h3 className="font-semibold dark:text-white">
           {booking.userName}
         </h3>
 
-        <p className="max-w-[180px] truncate text-sm text-gray-400">
+        <p className="max-w-[180px] truncate text-sm dark:text-gray-400">
           {booking.userEmail}
         </p>
       </div>
@@ -52,24 +52,24 @@ const BookingRow = ({ booking }) => {
   {/* Ticket */}
   <td className="px-3 py-4 md:px-6 md:py-5">
     <div>
-      <h4 className="font-medium text-white whitespace-nowrap">
+      <h4 className="font-medium dark:text-white whitespace-nowrap">
         {booking.ticketTitle}
       </h4>
 
-      <p className="text-sm text-gray-400 whitespace-nowrap">
+      <p className="text-sm dark:text-gray-400 whitespace-nowrap">
         {booking.from} → {booking.to}
       </p>
     </div>
   </td>
 
   {/* Quantity */}
-  <td className="px-3 py-4 md:px-6 md:py-5 font-medium text-white text-center">
+  <td className="px-3 py-4 md:px-6 md:py-5 font-medium dark:text-white text-center">
     {booking.quantity}
   </td>
 
   {/* Total */}
   <td className="px-3 py-4 md:px-6 md:py-5">
-    <span className="text-base md:text-lg font-bold text-white whitespace-nowrap">
+    <span className="text-base md:text-lg font-bold dark:text-white whitespace-nowrap">
       ৳{booking.totalPrice}
     </span>
   </td>
@@ -108,7 +108,7 @@ const BookingRow = ({ booking }) => {
         </button>
       </div>
     ) : (
-      <span className="text-sm text-gray-500">
+      <span className="text-sm dark:text-gray-500">
         Completed
       </span>
     )}

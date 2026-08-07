@@ -34,29 +34,29 @@ const MobileBookingRow = ({booking}) => {
 
           {/* Passenger */}
           <div>
-            <h3 className="font-semibold text-white">
+            <h3 className="font-semibold dark:text-white">
               {booking.userName}
             </h3>
 
-            <p className="text-sm text-gray-400">
+            <p className="text-sm dark:text-gray-400">
               {booking.userEmail}
             </p>
           </div>
 
           {/* Ticket */}
           <div>
-            <p className="font-medium text-white">
+            <p className="font-medium dark:text-white">
               {booking.ticketTitle}
             </p>
 
-            <p className="text-sm text-gray-400">
+            <p className="text-sm dark:text-gray-400">
               {booking.from} → {booking.to}
             </p>
           </div>
 
           {/* Quantity + Total */}
           <div className="flex justify-between">
-            <span className="text-gray-400">
+            <span className="dark:text-gray-400">
               Qty: {booking.quantity}
             </span>
 

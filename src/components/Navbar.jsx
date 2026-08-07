@@ -217,9 +217,22 @@ const Navbar = () => {
                   </p>
                 </div>
                 </div>
+               
+              </div>
+            )}
+
+            <div className="flex flex-col gap-3">
+             <div className="flex justify-between">
+               <NavLink
+              href="/"
+            
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </NavLink>
                  <button
   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-  className="rounded-full border border-cyan-500/20 p-2 transition hover:bg-cyan-500/10"
+  className="rounded-full border  border-cyan-500/20 p-2 transition hover:bg-cyan-500/10"
 >
   {theme === "dark" ? (
     <MdLightMode className="text-2xl text-yellow-400" />
@@ -227,17 +240,7 @@ const Navbar = () => {
     <MdDarkMode className="text-2xl text-cyan-500" />
   )}
 </button>
-              </div>
-            )}
-
-            <div className="flex flex-col gap-3">
-              <NavLink
-              href="/"
-            
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </NavLink>
+             </div>
 
             <NavLink
               href="/all-tickets"
@@ -246,6 +249,7 @@ const Navbar = () => {
             >
               All Tickets
             </NavLink>
+         
 
             </div>
             {!isPending && user && (

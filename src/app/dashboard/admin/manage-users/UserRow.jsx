@@ -36,13 +36,13 @@ const UserRow = ({user}) => {
             {user.name?.charAt(0).toUpperCase()}
           </div>
 
-          <h3 className="font-semibold text-white">
+          <h3 className="font-semibold dark:text-white">
             {user.name}
           </h3>
         </div>
       </td>
 
-      <td className="px-6 py-5 text-gray-300">
+      <td className="px-6 py-5 dark:text-gray-300">
         {user.email}
       </td>
 

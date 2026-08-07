@@ -31,8 +31,8 @@ const TicketChart = ({ revenue }) => {
 
 
   return (
-    <div className="rounded-3xl border border-cyan-500/10 bg-[#111827]/70 p-6 backdrop-blur">
-      <h2 className="mb-6 text-xl font-semibold text-white">
+    <div className="rounded-3xl border border-cyan-500/10 bg-yellow-100 dark:bg-[#111827]/70 p-6 backdrop-blur">
+      <h2 className="mb-6 text-xl font-semibold dark:text-white">
         Ticket Overview
       </h2>
 
