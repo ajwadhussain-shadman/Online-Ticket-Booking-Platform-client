@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
@@ -19,6 +19,7 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted,setMounted]=useState(false);
 
   const {
     data: session,
@@ -34,6 +35,9 @@ const Navbar = () => {
   };
   
   const {theme,setTheme}=useTheme();
+  useEffect(()=>{
+    setMounted(true);
+  },[])
   return (
     <nav className="sticky top-0 z-50 border-b border-cyan-500/10 bg-yellow-50 dark:bg-[#07111F]/90 backdrop-blur-xl ">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-8">
@@ -107,11 +111,12 @@ const Navbar = () => {
   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
   className="rounded-full border border-cyan-500/20 p-2 transition hover:bg-cyan-500/10"
 >
-  {theme === "dark" ? (
+  {mounted && theme === "dark" ? (
     <MdLightMode className="text-2xl text-yellow-400" />
-  ) : (
+  ) : mounted ?  (
     <MdDarkMode className="text-2xl text-cyan-500" />
-  )}
+  ): <span className="block h-6 w-6" /> 
+}
 </button>
           {!isPending && !user && (
             <>
@@ -234,11 +239,11 @@ const Navbar = () => {
   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
   className="rounded-full border  border-cyan-500/20 p-2 transition hover:bg-cyan-500/10"
 >
-  {theme === "dark" ? (
+  { mounted && theme === "dark" ? (
     <MdLightMode className="text-2xl text-yellow-400" />
-  ) : (
+  ) : mounted ? (
     <MdDarkMode className="text-2xl text-cyan-500" />
-  )}
+  ): <span className="block h-6 w-6" />}
 </button>
              </div>
 
@@ -285,7 +290,7 @@ const Navbar = () => {
               <>
                 <Link
                   href="/auth/sign-in"
-                  className="block rounded-xl px-4 py-3 font-medium text-gray-300"
+                  className="block rounded-xl px-4 py-3 font-medium dark:text-gray-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Sign In

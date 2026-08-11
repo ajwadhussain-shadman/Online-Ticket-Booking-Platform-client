@@ -4,7 +4,7 @@ import AdvertisementCard from "./AdvertisementCard";
 
 const AdvertisementSection = async () => {
   const tickets = await getAdvertisedTicket();
-
+  console.log("tickets:", tickets);
   return (
     <section className=" bg-yellow-50 dark:bg-[#07111F] py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
@@ -47,6 +47,7 @@ const AdvertisementSection = async () => {
         {/* Cards */}
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {tickets.map((ticket) => (
+            console.log("ticket",ticket),
             <AdvertisementCard
               key={ticket._id}
               ticket={ticket}

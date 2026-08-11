@@ -19,6 +19,7 @@ const handleStatusCode=(res)=>{
 //   }
     return res.json();
 }
+
  export const normalFetch=async(path)=>{
 const res = await fetch(`${url}${path}`)
  return res.json() || []

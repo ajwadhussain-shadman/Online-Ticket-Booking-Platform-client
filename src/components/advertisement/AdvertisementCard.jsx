@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const AdvertisementCard = ({ ticket }) => {
+  console.log("advertisement card" ,ticket)
   const transportColor = {
     Bus: "bg-yellow-500/20 text-yellow-400",
     Train: "bg-green-500/20 text-green-400",
