@@ -7,7 +7,7 @@ const Profile = async () => {
     const user=await verifyRole('user');
     return (
         <div className="max-w-4xl">
-      <h1 className="mb-8 text-4xl font-bold text-white">
+      <h1 className="mb-8 text-4xl font-bold dark:text-white">
         My Profile
       </h1>
 

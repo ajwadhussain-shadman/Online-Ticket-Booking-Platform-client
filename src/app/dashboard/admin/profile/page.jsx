@@ -8,7 +8,7 @@ const AdminProfilePage = async () => {
 
   return (
     <div>
-      <h1 className="mb-8 text-4xl font-bold text-white">
+      <h1 className="mb-8 text-4xl font-bold dark:text-white">
         Admin Profile
       </h1>
 

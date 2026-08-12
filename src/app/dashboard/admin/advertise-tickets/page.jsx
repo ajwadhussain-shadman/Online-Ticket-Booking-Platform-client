@@ -2,7 +2,7 @@ import { verifyRole } from '@/lib/protected-route';
 import React from 'react';
 import SmallDeviceAdvertiseRow from './SmallDeviceAdvertiseRow';
 import AdvertiseRow from './AdvertiseRow';
-import { getApprovedTickets } from '@/lib/shared/getApprovedTickets';
+import { getApprovedTicketsAdmin } from '@/lib/shared/getApprovedTickets';
 
 const AdvertiseTickets = async () => {
     const user=await verifyRole('admin');

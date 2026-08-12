@@ -11,7 +11,7 @@ const MyBookedTickets = async () => {
 
   return (
     <div>
-      <h1 className="mb-8 text-3xl font-bold text-white">
+      <h1 className="mb-8 text-3xl font-bold dark:text-white">
         My Booked Tickets
       </h1>
 
